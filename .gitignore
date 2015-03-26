@@ -78,3 +78,4 @@ $RECYCLE.BIN/
 
 #Ignore files build by Visual Studio
 obj/
+TwitterDb/test/config.js
