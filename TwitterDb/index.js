@@ -1,24 +1,16 @@
 ﻿var Twitter = require('twitter');
 
-var client = new Twitter({
-    consumer_key: '',
-    consumer_secret: '',
-    access_token_key: '',
-    access_token_secret: ''
-});
+module.exports = function (config) {
+    
+    var client = new Twitter(config);
 
-module.exports = {
-    create: function(obj) {
-        
-    },
+    return {
+        create: function(obj, callback) {
+            client.post('statuses/update', { status: obj }, callback);
+        },
 
-    getAll: function() {
-        
-    },
-
-    getById: function(id) {
-        
-    },
-
-
+        getById: function(id, callback) {
+            client.get('statuses/show', { id: id }, callback);
+        },
+    }
 };
